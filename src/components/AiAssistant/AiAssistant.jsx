@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const AiAssistant = () => {
@@ -6,10 +5,17 @@ const AiAssistant = () => {
   const [response, setResponse] = useState('');
 
   const handleAsk = () => {
-    if (question.toLowerCase().includes('train #5')) {
+    const lowerCaseQuestion = question.toLowerCase();
+    if (lowerCaseQuestion.includes('train #5')) {
       setResponse('Train #5 was not selected because its fitness was rejected.');
+    } else if (lowerCaseQuestion.includes('why was train #3 excluded')) {
+      setResponse('Train #3 was excluded because it is pending fitness approval and requires cleaning.');
+    } else if (lowerCaseQuestion.includes('what is the status of train #1')) {
+      setResponse('Train #1 is currently on time and is at Aluva station.');
+    } else if (lowerCaseQuestion.includes('how many trains are fit for service')) {
+      setResponse('There are currently 4 trains that are fit for service.');
     } else {
-      setResponse("I can only answer questions about Train #5 right now.");
+      setResponse("Sorry, I don't have the answer to that question right now.");
     }
   };
 
